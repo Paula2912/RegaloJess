@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Feliz Cumpleaños</title>
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Pacifico&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="estilos.css">
+</head>
+<body>
+
+  <div class="card">
+    <img src="fresa.png" alt="Fresa" class="fresa">
+
+    <h1 class="title">
+      Feliz cumpleaños<br>
+      <span>mi amor</span>
+    </h1>
+
+    <p class="subtitle">20 · 02 · 2026</p>
+
+    <p class="message">
+      Para la persona que hace mis días más bonitos
+    </p>
+
+    <p class="name">Jessicosa</p>
+
+    <button id="loveBtn">Toca aquí</button>
+
+    <!-- GATO -->
+    <div class="cat-wrapper">
+      <img src="siamés.png" alt="Dobby el gato siamés" class="siames">
+
+      <div class="cat-bubble side">
+        te quiero mucho,<br>feliz cumpleaños
+      </div>
+    </div>
+
+    <p class="cat-message">Dobby quería aparecer (púlsalo)</p>
+
+    <p class="tiny-note">Hecha con mucho amor</p>
+
+    <div class="hearts-container" id="heartsContainer"></div>
+  </div>
+
+  <script>
+    const btn = document.getElementById("loveBtn");
+    const container = document.getElementById("heartsContainer");
+
+    btn.addEventListener("click", () => {
+      for (let i = 0; i < 30; i++) {
+        const el = document.createElement("span");
+        const symbols = ["💖","💗","💕","💞","💘","🐾"];
+        const symbol = symbols[Math.floor(Math.random() * symbols.length)];
+
+        el.className = "heart";
+        el.textContent = symbol;
+
+        if (symbol === "🐾") el.classList.add("paw");
+
+        el.style.left = Math.random() * 100 + "%";
+        el.style.fontSize = Math.random() * 18 + 14 + "px";
+        el.style.animationDuration = Math.random() * 1.5 + 1.8 + "s";
+
+        container.appendChild(el);
+        setTimeout(() => el.remove(), 3000);
+      }
+    });
+  </script>
+
+</body>
+</html>
